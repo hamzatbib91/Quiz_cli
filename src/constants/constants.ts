@@ -1,0 +1,38 @@
+export const subscription = [
+  {
+    name: 'Free',
+    price: 0,
+    points: 0,
+    gift: 0,
+    days: 0,
+    paymentMethod: 'free',
+    discount: 0,
+  },
+  {
+    name: '4',
+    price: 4,
+    points: 20,
+    gift: 1,
+    days: 30,
+    paymentMethod: 'monthly',
+    discount: 0,
+  },
+  {
+    name: '8',
+    price: 8,
+    points: 60,
+    gift: 2,
+    days: 30,
+    paymentMethod: 'monthly',
+    discount: 30,
+  },
+  {
+    name: '10',
+    price: 10,
+    points: 100,
+    gift: 3,
+    days: 30,
+    paymentMethod: 'monthly',
+    discount: 50,
+  },
+] as const;

@@ -1,0 +1,23 @@
+export default [
+    {
+        point:100,
+        class:1,
+        price:5,
+        offreStatus:false,
+        offre:0
+    },
+    {
+        point:200,
+        class:2,
+        price:5,
+        offre:30,
+        offreStatus:true,
+    },
+    {
+        point:100,
+        class:3,
+        price:5,
+        offre:50,
+        offreStatus:true,
+    }
+]
