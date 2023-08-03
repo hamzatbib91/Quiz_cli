@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 import COLORS from '../../constants/colors';
 
@@ -9,7 +9,7 @@ import SportSVG from '../../svg/SportSVG';
 import SiencesSVG from '../../svg/SiencesSVG';
 import DivertissementSVG from '../../svg/DivertissementSVG';
 
-const Body = () => {
+const Body = ({ navigation }: { navigation: any }) => {
   const componentsArray = [
     {
       id: 1,
@@ -23,6 +23,7 @@ const Body = () => {
       ),
       title: 'ART',
       color: COLORS.ArtCOLOR,
+      itemId: 1,
     },
     {
       id: 2,
@@ -36,6 +37,8 @@ const Body = () => {
       ),
       title: 'GEOGRAPHIE',
       color: COLORS.GéographieCOLOR,
+      itemId: 2,
+
     },
     {
       id: 3,
@@ -49,6 +52,8 @@ const Body = () => {
       ),
       title: 'SPORT',
       color: COLORS.GreenButton,
+      itemId: 3,
+
     },
     {
       id: 4,
@@ -62,6 +67,7 @@ const Body = () => {
       ),
       title: 'HISTOIRE',
       color: COLORS.bgViolet,
+      itemId: 4,
     },
 
     {
@@ -76,6 +82,7 @@ const Body = () => {
       ),
       title: 'SIENCES',
       color: COLORS.SienceCOLOR,
+      itemId: 5,
     },
     {
       id: 6,
@@ -85,14 +92,17 @@ const Body = () => {
           width="90%"
           height="100%"
           fill="none"
+
         />
       ),
       title: 'DIVERTISS',
       color: COLORS.DivertissementCOLOR,
+      itemId: 6,
+
     },
   ];
   return (
-    <View style={{flex: 3}}>
+    <View style={{ flex: 3 }}>
       <Text
         style={{
           color: COLORS.white,
@@ -104,7 +114,12 @@ const Body = () => {
       </Text>
       <View style={styles.Body}>
         {componentsArray.map((item) => (
-          <View style={styles.child} key={item.id}>
+          <View style={styles.child} key={item.id} onStartShouldSetResponder={() => {
+            navigation.navigate("Questions", {
+              itemId: item.itemId,
+            });
+            return true;
+          }}>
             <View
               style={{
                 width: '100%',
@@ -113,13 +128,17 @@ const Body = () => {
                 alignItems: 'center',
                 gap: 5,
               }}>
+              {/* <TouchableOpacity onPress={()=>navigation.navigate('Questions') } > */}
+
               <View
-                style={[styles.CardCategorie, {backgroundColor: item.color}]}>
+                style={[styles.CardCategorie, { backgroundColor: item.color }]}>
                 {item.component}
               </View>
-              <Text style={{fontWeight:'700', color: COLORS.white}}>
+              <Text style={{ fontWeight: '700', color: COLORS.white }}>
                 {item.title}
               </Text>
+              {/* </TouchableOpacity> */}
+
             </View>
           </View>
         ))}
@@ -154,4 +173,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export {Body};
+export { Body };

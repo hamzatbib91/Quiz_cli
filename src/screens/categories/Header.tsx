@@ -3,7 +3,8 @@ import React from 'react';
 //useNavigation
 import {useNavigation} from '@react-navigation/native';
 import COLORS from '../../constants/colors';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Arrow from '../../svg/Arrow-left';
+import Close from '../../svg/Close';
 
 const Header = () => {
   const navigation = useNavigation();
@@ -18,7 +19,8 @@ const Header = () => {
       }}>
       <View>
         {/* <Ionicons name="arrow-back-outline" size={28} color={COLORS.white} /> */}
-        <Icon name="arrow-back-outline" size={28} color={COLORS.white} />
+        {/* <Icon name="arrow-back-outline" size={28} color={COLORS.white} /> */}
+        <Arrow onPress={ () => {  navigation.goBack();} } />
 
       </View>
       <View>
@@ -31,7 +33,8 @@ const Header = () => {
         </Text>
       </View>
       <View>
-      <Icon name="arrow-back-outline" onPress={ () => {  navigation.goBack();} }   size={35} color={COLORS.white} />
+      {/* <Icon name="arrow-back-outline" onPress={ () => {  navigation.goBack();} }   size={35} color={COLORS.white} /> */}
+      <Close onPress={ () => {  navigation.goBack();} }/>
         {/* <Feather
           onPress={() => {
             navigation.goBack();

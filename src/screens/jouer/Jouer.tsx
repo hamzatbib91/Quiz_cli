@@ -2,7 +2,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import COLORS from '../../constants/colors';
 import Button from '../../components/Button';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Close from '../../svg/Close';
 
 
 
@@ -18,7 +18,7 @@ const Jouer = ({navigation}: {navigation: any}) => {
           justifyContent: 'flex-end',
         }}>
         <View>
-        <Icon name="arrow-back-outline" onPress={ () => {  navigation.goBack();} }   size={35} color={COLORS.white} />
+        <Close onPress={ () => {  navigation.goBack();} }/>
 
         </View>
       </View>
@@ -36,6 +36,7 @@ const Jouer = ({navigation}: {navigation: any}) => {
           bgColor={COLORS.YellowText}
           border={2}
           borderColor={COLORS.GreenDark}
+          bottom={50}
         />
         <Button
           color={COLORS.GreenButton}

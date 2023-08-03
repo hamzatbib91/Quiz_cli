@@ -1,10 +1,14 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import COLORS from '../../constants/colors';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Arrow from '../../svg/Arrow-left';
+import { useNavigation } from '@react-navigation/native';
 
 
-const Header = ({onPress = () => {}}) => {
+
+const Header = () => {
+  const navigation = useNavigation();
+
   return (
     <View
       style={{
@@ -14,8 +18,10 @@ const Header = ({onPress = () => {}}) => {
         flexDirection: 'row',
       }}>
       <View style={{flex: 0.3}}>
-        <Text onPress={onPress}>
-          <Icon name="arrow-back-outline" size={28} color={COLORS.white} />
+        <Text onPress={()=>{
+          navigation.goBack();
+        }}>
+          <Arrow  name="arrow-back-outline" size={28} color={COLORS.white} />
         </Text>
       </View>
       <View style={{flex: 2}}>

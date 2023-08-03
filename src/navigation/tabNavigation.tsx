@@ -7,6 +7,7 @@ import Boutique from '../screens/boutique/Boutique';
 import Classement from '../screens/classement/Classement';
 import Profile from '../screens/profile/Profile';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Image } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,19 +41,26 @@ export default function TabNavigation() {
         headerShown: false,
         //using typeScript to add icon to tab bar
         tabBarIcon: ({focused, color, size}) => {
-          let iconName: string = '';
+          let iconName: any = '';
           if (route.name === homeName) {
-            iconName = focused ? 'home' : 'home-outline';
+            iconName = focused ? require('./images/home.png') : require('./images/home-outline.png');
           } else if (route.name === profileName) {
-            iconName = focused ? 'account' : 'account-outline';
+            iconName = focused ? require('./images/account.png') : require('./images/account-outline.png');
           } else if (route.name === boutiqueName) {
-            iconName = focused ? 'cart' : 'cart-outline';
+            iconName = focused ?  require('./images/cart.png') : require('./images/cart-outline.png');
           } else if (route.name === classementName) {
-            iconName = focused ? 'trophy' : 'trophy-outline';
+            iconName = focused ? require('./images/trophy.png') : require('./images/trophy-outline.png');
           } else if (route.name === parametresName) {
-            iconName = focused ? 'cog' : 'cog-outline';
+            iconName = focused ? require('./images/cog.png') : require('./images/cog-outline.png');
           }
-          return <Icon name={iconName} size={32} color={color} />;
+          // return <Icon name={iconName} size={32} color={color} />;
+          return <Image source={iconName}  style={{
+            width: 32,
+            height: 32,
+            borderRadius: 10,
+            marginTop: 5,
+          }}/>;
+
         },
       })}
       // tabBar={(p) =:> }

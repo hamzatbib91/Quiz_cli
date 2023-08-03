@@ -4,25 +4,53 @@ import {
   Image,
   TouchableOpacity,
   Clipboard,
-  Dimensions ,
   Alert,
+  Share,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import COLORS from '../../constants/colors';
+import { useAuthentication } from '../../hooks/useAuthentication';
 
-const width = Dimensions.get('window').width; //full width
+// const width = Dimensions.get('window').width; //full width
 
 
 const Body = () => {
+  const { user, loding } = useAuthentication();
+  const [referralCode, setReferralCode] = useState<any>(null);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (!loding) {
+      setReferralCode(user.referralCode);
+    }
+  });
   const copyToClipboard = async () => {
-    const textToCopy = '3443'; // Replace with the desired text to be copied
-    await Clipboard.setString(textToCopy);
+    const textToCopy = referralCode; // Replace with the desired text to be copied
+    await Clipboard.setString(textToCopy ? textToCopy : "");
     Alert.alert('Copied to clipboard!');
   };
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: referralCode,
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error: any) {
+      Alert.alert(error.message);
+    }
+  };
+
   return (
-    <View style={{flex: 8, flexDirection: 'column', marginTop: 40, gap: 40}}>
-      <View style={{flexDirection: 'column', gap: 15}}>
-        <Text style={{fontWeight: 'bold', fontSize: 17, color: COLORS.white}}>
+    <View style={{ flex: 8, flexDirection: 'column', marginTop: 40, gap: 40 }}>
+      <View style={{ flexDirection: 'column', gap: 15 }}>
+        <Text style={{ fontWeight: 'bold', fontSize: 17, color: COLORS.white }}>
           COMMENT CELA FONCTIONNE ?
         </Text>
         <Text
@@ -50,19 +78,20 @@ const Body = () => {
         </Text>
         <View style={styles.copie}>
           <TouchableOpacity>
-            <Text style={{fontWeight: 'bold', fontSize: 18}}>ALSK483</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{referralCode}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={copyToClipboard}>
             <Image
               source={require('../../images/copie.png')}
-              style={{width: 25, height: 25, alignSelf: 'center'}}
+              style={{ width: 25, height: 25, alignSelf: 'center' }}
             />
           </TouchableOpacity>
         </View>
         <View>
           <View
-            style={{flexDirection: 'row', gap: 15, justifyContent: 'center'}}>
+            style={{ flexDirection: 'row', gap: 15, justifyContent: 'center' }}>
             <TouchableOpacity
+              onPress={onShare}
               style={{
                 backgroundColor: COLORS.facebook,
                 width: 55,
@@ -73,10 +102,11 @@ const Body = () => {
               }}>
               <Image
                 source={require('../../images/facebook.png')}
-                style={{alignSelf: 'center', width: '100%', height: '100%'}}
+                style={{ alignSelf: 'center', width: '100%', height: '100%' }}
               />
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={onShare}
               style={{
                 backgroundColor: COLORS.twitter,
                 width: 55,
@@ -87,7 +117,7 @@ const Body = () => {
               }}>
               <Image
                 source={require('../../images/twitter.png')}
-                style={{alignSelf: 'center', width: '100%', height: '85%'}}
+                style={{ alignSelf: 'center', width: '100%', height: '85%' }}
               />
             </TouchableOpacity>
           </View>
@@ -97,9 +127,9 @@ const Body = () => {
   );
 };
 
-const styles:any = {
+const styles: any = {
   copie: {
-    width: width,
+    width: '100%',
     height: 50,
     backgroundColor: COLORS.white,
     marginVertical: 20,
@@ -113,4 +143,4 @@ const styles:any = {
   },
 };
 
-export {Body};
+export { Body };

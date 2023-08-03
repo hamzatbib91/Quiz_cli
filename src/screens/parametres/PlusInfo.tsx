@@ -1,9 +1,14 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import COLORS from '../../constants/colors';
+import ArrowRight from '../../svg/Arrow-right';
+import auth from '@react-native-firebase/auth';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 const PlusInfo = () => {
+  const navigation = useNavigation<any>();
   return (
     <View style={styles.Parametres}>
       <Text
@@ -27,7 +32,7 @@ const PlusInfo = () => {
           <Text style={{fontSize: 17, fontWeight: '300'}}>
             Termes et conditions
           </Text>
-          <Icon
+          <ArrowRight
             onPress={() => {}}
             name={'chevron-right'}
             style={{fontSize: 22}}
@@ -42,8 +47,30 @@ const PlusInfo = () => {
             paddingHorizontal: 20,
           }}>
           <Text style={{fontSize: 17, fontWeight: '300'}}>Assistance</Text>
-          <Icon
+          <ArrowRight
             onPress={() => {}}
+            name={'chevron-right'}
+            style={{fontSize: 22}}
+          />
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginVertical: 8,
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: 8,
+            paddingHorizontal: 20,
+          }}
+          
+          >
+          <Text
+            style={{fontSize: 17, fontWeight: '300'}}>
+            Code de parrainage
+          </Text>
+          <ArrowRight
+            onPress={() => { navigation.navigate('Parrainer');
+          }}
             name={'chevron-right'}
             style={{fontSize: 22}}
           />
@@ -62,8 +89,8 @@ const PlusInfo = () => {
             style={{fontSize: 17, fontWeight: '300', color: COLORS.redText}}>
             Déconnexion
           </Text>
-          <Icon
-            onPress={() => {}}
+          <ArrowRight
+            onPress={() => {auth().signOut().then(() => console.log('User signed out!'));}}
             name={'chevron-right'}
             style={{fontSize: 22, color: COLORS.redText}}
           />

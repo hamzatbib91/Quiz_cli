@@ -1,14 +1,15 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import React from 'react';
 import COLORS from '../../constants/colors';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Button} from 'react-native-paper';
 import {Body as BodyBoutique} from './Body';
+import Arrow from '../../svg/Arrow-left';
 
 const Header = () => {
-  //useState
+
   const [cadeaux, setCadeaux] = React.useState(true);
   const [offres, setOffres] = React.useState(false);
+  
   return (
     <View>
       <View style={styles.HeaderBoutique}>
@@ -19,11 +20,16 @@ const Header = () => {
             alignItems: 'center',
             flex: 3,
           }}>
-          <Icon
+            <Arrow
+              onPress={() => {Alert.alert('test')}}
+              name="arrow-left"
+              style={{color: COLORS.white, fontSize: 30, marginRight: 10}}
+      />
+          {/* <Icon
             onPress={() => {}}
             name={'arrow-left'}
             style={{fontSize: 28, color: COLORS.white}}
-          />
+          /> */}
           <Text style={{fontWeight: '600', fontSize: 25, color: COLORS.white}}>
             Boutique
           </Text>

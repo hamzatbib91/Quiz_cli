@@ -5,11 +5,12 @@ import React = require('react');
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+Ionicons.loadFont();
+MaterialCommunityIcons.loadFont();
 
 export default function App() {
-  
-  Ionicons.loadFont();
-  MaterialCommunityIcons.loadFont();
+
+ 
   return (
     <AppProvider>
       <View style={styles.container} >

@@ -12,7 +12,7 @@ import Categories from '../screens/categories/Categories';
 import Questions from '../screens/questions/Questions';
 import Attendez from '../screens/attendez/Attendez';
 import Niveau from '../screens/niveau/Niveau';
-import LoginScreen from '../screens/login/LoginScreen';
+import Parrainer from '../screens/Parrainer/Parrainer';
 
 const Stack = createStackNavigator();
 
@@ -29,7 +29,7 @@ export default function UserStack() {
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="BoardingScreen" component={Boarding} />
       <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="Parrainer" component={Parrainer} />
     </Stack.Navigator>
   );
 }

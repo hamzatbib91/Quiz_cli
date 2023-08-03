@@ -1,22 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Image, ScrollView, StyleSheet} from 'react-native';
+import { View, Image, ScrollView, StyleSheet } from 'react-native';
 import COLORS from '../../constants/colors';
 import AvatarGamer from './Avatar';
 import Diamond from './Diamond';
-import {Card} from './Card';
-import {AppContext} from '../../hooks/useContext';
-import {useContext} from 'react';
+import { Card } from './Card';
+import { AppContext } from '../../hooks/useContext';
+import { useContext } from 'react';
 import Abonnement from '../abonnement/Abonnement';
 import Parrainer from '../Parrainer/Parrainer';
 import Pause from '../pause/Pause';
 import Attendez from '../attendez/Attendez';
+import { useNavigation } from '@react-navigation/core';
+import { generateRandomString } from '../../constants/function';
 
-const Home = () => {
+const Home = ({ navigation }: { navigation: any }) => {
+  // const { categories } = useQuestions(2);
   return (
     <ScrollView style={styles.content}>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <AvatarGamer />
         <Diamond />
       </View>
@@ -28,16 +31,16 @@ const Home = () => {
         }}>
         <Image
           source={require('../../images/brain.png')}
-          style={{width: 270, height: 270}}
+          style={{ width: 270, height: 270 }}
         />
       </View>
-      <View style={{paddingBottom: 60}}>
+      <View style={{ paddingBottom: 60 }}>
         <Card
           icon="braing.png"
-          jouer={true}
           choisir={true}
           parrainer={false}
           title="Jouer et gagner!"
+          navigation={navigation}
         />
         <Card
           jouer={false}
@@ -57,56 +60,18 @@ const Home = () => {
           title="Cadeaux gratuits a récupérer tous les jours"
         />
       </View>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <AvatarGamer />
-        <Diamond />
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
-          paddingVertical: 0,
-        }}>
-        <Image
-          source={require('../../images/brain.png')}
-          style={{width: 270, height: 270}}
-        />
-      </View>
-      <View style={{paddingBottom: 60}}>
-        <Card
-          icon="braing.png"
-          jouer={true}
-          choisir={true}
-          parrainer={false}
-          title="Jouer et gagner!"
-        />
-        <Card
-          jouer={false}
-          choisir={false}
-          icon="certaficat-user.png"
-          parrainer={true}
-          title="Parrainer plusieurs personnes recoit 100 points de jeu  a chaque une"
-        />
-        <Card
-          bgColor={COLORS.YellowText}
-          color={COLORS.black}
-          jouer={false}
-          icon="cadeaux.png"
-          choisir={false}
-          ButtonText="RECUPERER"
-          parrainer={true}
-          title="Cadeaux gratuits a récupérer tous les jours"
-        />
-      </View>
+
     </ScrollView>
   );
 };
 
 const HomeScreen = () => {
-  const {variable, setVariable} = useContext<any>(AppContext);
-  const {parier, setParier} = useContext<any>(AppContext);
+  const navigation = useNavigation();
 
-  return variable ? <Abonnement /> : parier ? <Parrainer /> : <Home />;
+  const { variable, setVariable } = useContext<any>(AppContext);
+  const { parier, setParier } = useContext<any>(AppContext);
+
+  return variable ? <Abonnement /> : parier ? <Parrainer /> : <Home navigation={navigation} />;
 };
 
 const styles = StyleSheet.create({

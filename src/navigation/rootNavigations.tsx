@@ -1,20 +1,15 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-// import AuthStack from './authStack';
-import auth from '@react-native-firebase/auth';
+import AuthStack from './authStack';
 import UserStack from './serStack';
-// import UserStack from './serStack';
+import { useAuthentication as UseAuthentication } from '../hooks/useAuthentication';
 
 export default function rootNavigation() {
-  const {currentUser} = auth();
-  // React.useEffect(() => {
-  //   if (currentUser) {
-  //   }
-  // }, [currentUser]);
+  const {users} = UseAuthentication();
 
   return (
     <NavigationContainer>
-      {auth().currentUser ? <UserStack /> : <UserStack /> }
+      {users ? <UserStack /> : <AuthStack /> }
     </NavigationContainer>
   );
 }

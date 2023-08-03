@@ -4,11 +4,11 @@ import {Header as HeaderCategories} from './Header';
 import {Body as BodyCategories} from './Body';
 import COLORS from '../../constants/colors';
 
-const Categories = () => {
+const Categories = ({navigation}:{navigation:any}) => {
   return (
     <View style={styles.jouer}>
       <HeaderCategories />
-      <BodyCategories />
+      <BodyCategories navigation={navigation}/>
     </View>
   );
 };

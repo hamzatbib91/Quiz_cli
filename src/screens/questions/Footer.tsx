@@ -2,8 +2,11 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {Icon} from 'react-native-elements';
 import COLORS from '../../constants/colors';
+import { useAuthentication } from '../../hooks/useAuthentication';
 
-const Footer = () => {
+const Footer = ({timer}:{timer:number}) => {
+  const { user } = useAuthentication();
+
   return (
     <View style={styles.Footer}>
       <Text
@@ -21,7 +24,7 @@ const Footer = () => {
             color: COLORS.white,
             paddingHorizontal: 5,
           }}>
-          22{' '}
+          {user?.points +' '}
         </Text>
         <Text
           style={{
@@ -53,7 +56,7 @@ const Footer = () => {
             color: COLORS.white,
             flexDirection: 'row',
           }}>
-          Jockers:2
+          { user?.jokers} Jockers
         </Text>
       </Text>
       <Text
@@ -70,7 +73,7 @@ const Footer = () => {
           />
         </View>
         <Text style={{flex: 1, fontSize: 12, color: COLORS.white}}>
-          00:00:00
+          00 : {timer < 10 ? '0' + timer : timer}
         </Text>
       </Text>
       <Text

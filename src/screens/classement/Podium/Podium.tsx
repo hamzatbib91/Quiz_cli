@@ -14,13 +14,12 @@ const Podium = () => {
         <View
           style={[
             styles.one,
-            {flex: 1, backgroundColor: COLORS.bgClassement, height: '60%'},
+            {flex: 1, backgroundColor: COLORS.bgClassement, height: '35%'},
           ]}>
-          <View style={styles.before1} />
           <Text style={{fontSize: 35, fontWeight: 'bold', color: COLORS.white}}>
             2
           </Text>
-          <View style={[styles.Avatar, {top: -110}]}>
+          <View style={[styles.Avatar, {top: -90}]}>
             <Image
               source={require('../../../images/luffy.jpeg')}
               style={{width: 60, height: 60, borderRadius: 50}}
@@ -32,7 +31,7 @@ const Podium = () => {
         </View>
         <LinearGradient
           colors={['#B1EB73', '#7DB343']}
-          style={styles.one}
+          style={[styles.one,{flex: 1, backgroundColor: COLORS.bgClassement, height: '50%'}]}
             start={{x: 0, y: 1}}
             end={{x: 0, y: 0}}
             >
@@ -44,8 +43,7 @@ const Podium = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <View style={styles.before2} />
-            <View style={styles.before22} />
+            
             <Text
               style={{fontSize: 35, fontWeight: 'bold', color: COLORS.white}}>
               1
@@ -64,14 +62,13 @@ const Podium = () => {
         <View
           style={[
             styles.one,
-            {flex: 1, backgroundColor: COLORS.bgClassement, height: '45%'},
+            {flex: 1, backgroundColor: COLORS.bgClassement, height: '25%'},
           ]}>
-          <View style={styles.before3} />
-          <View style={styles.before33} />
+          
           <Text style={{fontSize: 35, fontWeight: 'bold', color: COLORS.white}}>
             3
           </Text>
-          <View style={[styles.Avatar, {top: -110}]}>
+          <View style={[styles.Avatar, {top: -90}]}>
             <Image
               source={require('../../../images/luffy.jpeg')}
               style={{width: 60, height: 60, borderRadius: 50}}
@@ -175,7 +172,7 @@ const styles = StyleSheet.create({
   CardPrimary: {
     flexDirection: 'row',
     height: 200,
-    marginTop: 70,
+    marginTop: 30,
     alignItems: 'flex-end',
   },
   one: {
@@ -201,7 +198,7 @@ const styles = StyleSheet.create({
   before2: {
     position: 'absolute',
     left: 10,
-    top: -55,
+    top: -35,
     transform: [{skewX: '-60deg'}],
     width: '50%',
     height: 15,
@@ -210,7 +207,7 @@ const styles = StyleSheet.create({
   before22: {
     position: 'absolute',
     right: 11,
-    top: -55,
+    top: -50,
     transform: [{skewX: '60deg'}],
     width: '50%',
     height: 15,

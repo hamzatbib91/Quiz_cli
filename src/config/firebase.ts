@@ -1,4 +1,20 @@
 // import firebase from 'firebase';
+
+// // Assuming you've already initialized your Firebase app
+// const db = firebase.firestore();
+
+const DATABASE = {
+    abonnement: 'abonnement',
+    cartecadeaux: 'cartecadeaux',
+    categories: 'categories',
+    offre: 'offre',
+    questionnaires: 'questionnaires',
+    questions: 'questions',
+    subscription: 'subscription',
+    users: 'users',
+};
+export {DATABASE};
+// import firebase from 'firebase';
 // import {generateRandomString} from '../constants/function';
 // import {useEffect, useState} from 'react';
 

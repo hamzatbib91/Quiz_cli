@@ -34,7 +34,7 @@ const ButtonAccount = ({
                 uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png',
               }}
               resizeMode="contain"
-              style={{width: 20, height: 20}}
+              style={{width: 10, height: 10}}
             />
           ) : (
             <Icon name={iconName} style={{color: colorIcon, fontSize: 22}} />

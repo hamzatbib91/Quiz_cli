@@ -41,7 +41,7 @@ const Card = ({
   title = '',
   ButtonText = 'PARRAINER',
   parrainer = false,
-  jouer = false,
+  jouer = true,
   icon = 'braing.png',
   choisir = false,
   abonnementModal = false,
@@ -64,7 +64,6 @@ const Card = ({
     'ace.png': require('../../images/ace.png'),
     // Add more image paths here for different icons
   };
-
   const sizes: {[key in K]: {width: number; height: number}} = {
     'braing.png': {width: 60, height: 50},
     'certaficat-user.png': {width: 60, height: 60},
@@ -93,7 +92,7 @@ const Card = ({
         }}>
         <Image source={imagePath[icon]} style={styles.imgBG} />
         <Text style={styles.title}>{title}</Text>
-        {jouer && <Button onPress={handleJouer} title="JOUER" />}
+        {jouer && <Button onPress={handleJouer} title="JOUER" position='relative'  />}
         {choisir && (
           <Button
             onPress={handleAbonnement}
@@ -101,9 +100,9 @@ const Card = ({
             bgColor={COLORS.white}
             color={COLORS.GreenButton}
             border={2}
+            bottom={-35}
           />
         )}
-
         {parrainer && (
           <Button
             title={ButtonText}

@@ -11,7 +11,7 @@ const CardParametre = () => {
       <ScrollView style={{position: 'relative'}}>
         <AvatarSetting />
         <ParametreCompte />
-        <PlusInfo />
+        <PlusInfo   />
       </ScrollView>
     </View>
   );

@@ -51,56 +51,8 @@ const Badges = () => {
             <Hexagonal bgColor={COLORS.bgViolet} />
             <Text style={{marginHorizontal: 10}}>Mondiale</Text>
           </View>
-          <View
-            style={{
-              width: '29.33%',
-              flexDirection: 'column',
-              gap: 0,
-              marginLeft: 10,
-            }}>
-            <Hexagonal bgColor={COLORS.bgViolet} />
-            <Text style={{marginHorizontal: 10}}>Mondiale</Text>
-          </View>
-          <View
-            style={{
-              width: '29.33%',
-              flexDirection: 'column',
-              gap: 0,
-              marginLeft: 10,
-            }}>
-            <Hexagonal bgColor={COLORS.bgViolet} />
-            <Text style={{marginHorizontal: 10}}>Mondiale</Text>
-          </View>
-          <View
-            style={{
-              width: '29.33%',
-              flexDirection: 'column',
-              gap: 0,
-              marginLeft: 10,
-            }}>
-            <Hexagonal bgColor={COLORS.bgViolet} />
-            <Text style={{marginHorizontal: 10}}>Mondiale</Text>
-          </View>
-          <View
-            style={{
-              width: '29.33%',
-              flexDirection: 'column',
-              gap: 0,
-              marginLeft: 10,
-            }}>
-            <Hexagonal bgColor={COLORS.bgViolet} />
-            <Text style={{marginHorizontal: 10}}>Mondiale</Text>
-          </View>
-          <View
-            style={{
-              width: '29.33%',
-              flexDirection: 'column',
-              gap: 0,
-              marginLeft: 10,
-            }}>
-            <Hexagonal bgColor={COLORS.bgViolet} />
-            <Text style={{marginHorizontal: 10}}>Mondiale</Text>
-          </View>
+          
+          
         </View>
       </ScrollView>
     </View>

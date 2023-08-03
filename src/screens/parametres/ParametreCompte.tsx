@@ -1,8 +1,8 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import COLORS from '../../constants/colors';
 import SwitchComponent from '../../components/Switch';
+import ArrowRight from '../../svg/Arrow-right';
 
 const ParametreCompte = () => {
   return (
@@ -21,7 +21,7 @@ const ParametreCompte = () => {
           <Text style={{fontSize: 17, fontWeight: '300'}}>
             Modifier le profil
           </Text>
-          <Icon
+          <ArrowRight
             onPress={() => {}}
             name={'chevron-right'}
             style={{fontSize: 22}}
@@ -37,7 +37,7 @@ const ParametreCompte = () => {
           <Text style={{fontSize: 17, fontWeight: '300'}}>
             Changer le mot de passe
           </Text>
-          <Icon
+          <ArrowRight
             onPress={() => {}}
             name={'chevron-right'}
             style={{fontSize: 22}}

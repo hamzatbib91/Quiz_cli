@@ -1,17 +1,19 @@
 import {View, StyleSheet} from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../../constants/colors';
+import { Image } from 'react-native';
+import Arrow from '../../svg/Arrow-left';
+
 const Header = () => {
   return (
     <View style={styles.header}>
-      <Icon
+      <Arrow
         name="arrow-left"
         style={{color: COLORS.white, fontSize: 30, marginRight: 10}}
       />
-      <Icon
-        name="cog-outline"
-        style={{color: COLORS.white, fontSize: 30, marginRight: 10}}
+      <Image
+        source={require('./images/setting.png')}
+        style={{ marginRight: 10, width:36,height:36}}
       />
     </View>
   );

@@ -15,7 +15,7 @@ const Results = () => {
       </View>
       <View style={styles.iconResult}>
         <Image
-          source={require('../../images/diamong.png')}
+          source={require('./images/classements.png')}
           style={{width: 20, height: 22}}
         />
         <Text style={{color: COLORS.white}}>Classements</Text>
@@ -23,7 +23,7 @@ const Results = () => {
       </View>
       <View style={styles.iconResult}>
         <Image
-          source={require('../../images/diamong.png')}
+          source={require('./images/Chrono.png')}
           style={{width: 20, height: 22}}
         />
         <Text style={{color: COLORS.white}}>Chrono</Text>
